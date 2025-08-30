@@ -23,42 +23,46 @@ const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
   );
 
   return (
-    <div className="travel-post-full mb-5">
-      {/* Luogo */}
-      <div className="travel-post-header">
-        <FaMapMarkerAlt className="text-danger me-2" />
-        <h3 className="travel-post-title">{post.place}</h3>
+    <div className="mb-5 row bg-section mx-1">
+
+      <div className="travel-post-header d-flex align-items-center mb-3">
+          <FaMapMarkerAlt className="text-primary me-2" />
+          <h3 className="travel-post-title">{post.place}</h3>
+        </div>
+        <hr  className="text-white"/>
+
+      {/* galleria media */}
+      <div className="col-md-5">
+        {media && media.length > 0 && (
+          <div className="media-viewer position-relative">
+            {currentMedia.type === "video" ? (
+              <video src={currentMedia.url} controls className="media-item w-100" />
+            ) : (
+              <img src={currentMedia.url} alt="Foto tappa" className="media-item w-100" />
+            )}
+
+            {media.length > 1 && (
+              <div className="media-controls d-flex justify-content-between mt-2">
+                <button className="btn btn-sm btn-outline-secondary" onClick={handlePrev}>‹</button>
+                <button className="btn btn-sm btn-outline-secondary" onClick={handleNext}>›</button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
-      {/* Media singolo con freccette */}
-      {media && media.length > 0 && (
-        <div className="media-viewer">
-          {currentMedia.type === "video" ? (
-            <video src={currentMedia.url} controls className="media-item" />
-          ) : (
-            <img src={currentMedia.url} alt="Foto tappa" className="media-item" />
-          )}
-          {media.length > 1 && (
-            <>
-              <button className="media-arrow left" onClick={handlePrev}>‹</button>
-              <button className="media-arrow right" onClick={handleNext}>›</button>
-            </>
-          )}
-        </div>
-      )}
-
-      {/* Descrizione + tag */}
-      <div className="travel-post-body">
+      {/* dettagli */}
+      <div className="col-md-7">
         {tags.length > 0 && (
-          <div className="travel-tags">
+          <div className="travel-tags mb-2">
             {tags.map((tag, i) => (
               <span key={i} className="badge-tag">{tag}</span>
             ))}
           </div>
         )}
-        <p className="travel-description">{post.description}</p>
 
-        {/* Dettagli toggle */}
+        <p className="travel-description mt-1">{post.description}</p>
+
         <button
           className="btn btn-sm btn-outline-primary mt-3"
           onClick={() => setShowDetails(!showDetails)}
@@ -72,12 +76,13 @@ const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
             <li><strong>Note positive:</strong> {post.positive_note}</li>
             <li><strong>Note negative:</strong> {post.negative_note}</li>
             <li><strong>Sforzo fisico:</strong> <CirclesDisplay voto={post.physical_effort} /></li>
-            <li><strong>Sforzo economico:</strong> <CirclesDisplay voto={post.economic_effort} /></li>
+            <li><strong>Effert economico:</strong> <CirclesDisplay voto={post.economic_effort} /></li>
             <li><strong>Costo reale:</strong> €{post.actual_cost}</li>
           </ul>
         )}
       </div>
     </div>
+
   );
 };
 
