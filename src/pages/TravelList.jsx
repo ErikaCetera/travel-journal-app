@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../supebaseClient";
 import TravelCard from "../components/TravelCard";
 
@@ -61,7 +61,7 @@ const TravelList = () => {
         <div className="container mt-4">
 
             {/* Filtri */}
-            <div className="travel-filters">
+            <div className="bg-section mb-5">
                 <h5 className="filters-title">Filtra</h5>
                 <form
                     onSubmit={(e) => {
@@ -70,7 +70,7 @@ const TravelList = () => {
                     }}
                 >
                     <div className="filters-row">
-                        <div className="filter-group">
+                        <div className="filter-group ">
                             <input
                                 type="text"
                                 className="filter-input"
@@ -79,7 +79,7 @@ const TravelList = () => {
                                 onChange={(e) => setTitle(e.target.value)}
                             />
                         </div>
-                        <div className="filter-group">
+                        <div className="filter-group ">
                             <input
                                 type="date"
                                 className="filter-input"
@@ -88,7 +88,8 @@ const TravelList = () => {
                             />
                         </div>
                         <div className="filter-group">
-                            <button type="submit" className="filter-btn filter-btn-search">
+                            <button type="submit"
+                                className="filter-btn filter-btn-search">
                                 Cerca
                             </button>
                         </div>
@@ -100,8 +101,8 @@ const TravelList = () => {
                                     setStart("");
                                     setTitle("");
                                     fetchAllTravels();
-                                }}> 
-                                 Reset
+                                }}>
+                                Reset
                             </button>
                         </div>
                     </div>

@@ -1,58 +1,59 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 import { FaMapMarkedAlt, FaPlusCircle, FaUser, FaHome } from 'react-icons/fa';
 
 const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
-            <div className="container-fluid">
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
+      <div className="container-fluid">
 
-                {/* Bottone mobile */}
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+        {/* Bottone mobile */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-                {/* Link di navigazione */}
-                <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item me-4">
-                            <a className="nav-link d-flex align-items-center" href="/">
-                                <FaHome className="me-2" />
-                                Home
-                            </a>
-                        </li>
-                        <li className="nav-item me-4">
-                            <a className="nav-link d-flex align-items-center" href="#">
-                                <FaMapMarkedAlt className="me-2" />
-                                Esplora i viaggi
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link d-flex align-items-center" href="#">
-                                <FaPlusCircle className="me-2" />
-                                Aggiungi una nuova meta
-                            </a>
-                        </li>
-                    </ul>
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link d-flex align-items-center" href="#">
-                                <FaUser className="me-2" />
-                                Login
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    );
+        {/* Link di navigazione */}
+        <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item ">
+              <Link to="/" className="nav-link d-flex align-items-center">
+                <FaHome className="me-2" />
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/create" className="nav-link d-flex align-items-center">
+                <FaMapMarkedAlt className="me-2" />
+                Esplora i viaggi
+              </Link>
+            </li>
+            <li className="nav-item ">
+              <Link to="/create" className="nav-link d-flex align-items-center">
+                <FaPlusCircle className="me-2" />
+                Aggiungi una nuova meta
+              </Link>
+            </li>
+          </ul>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/login" className="nav-link d-flex align-items-center">
+                <FaUser className="me-2" />
+                Login
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;

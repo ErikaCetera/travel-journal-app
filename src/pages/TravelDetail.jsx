@@ -99,7 +99,7 @@ const TravelDetails = () => {
       )}
 
       {/* Filtri */}
-      <div className="travel-filters">
+      <div className="bg-section my-5">
         <h5 className="filters-title">Filtra</h5>
         <form onSubmit={handleFilter}>
           <div className="filters-row">
