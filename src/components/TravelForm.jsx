@@ -7,18 +7,22 @@ function TravelForm({
     handleShowStops,
     handleAddStop,
     handleRemoveStop,
-    handleSubmit,
     availableTags,
     handleAddTag,
-    errors
+    errors,
+    mode = "create",
+    onSubmit 
 }) {
     return (
         <div>
-            <h1 className="text-center text-white my-4">Nuovo Viaggio</h1>
+            <h1 className="text-center text-white my-4">
+                {mode === "edit" ? "Modifica Viaggio" : "Nuovo Viaggio"}
+            </h1>
+
 
             <div className="row justify-content-center">
                 <div className="col-md-10">
-                    <form className="travel-form" onSubmit={handleSubmit}>
+                    <form className="travel-form" onSubmit={onSubmit}>
                         <div className="bg-section">
 
                             {/* Sezione Dati Viaggio */}

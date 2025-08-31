@@ -10,11 +10,11 @@ export default defineConfig({
       manifest: {
         name: 'BearTrip',
         short_name: 'BTrip',
-        description: 'Un diario di viaggio selvaggio per spiriti liberi',
+        description: 'Diario di viaggio personale',
         start_url: '.',
         display: 'standalone',
         background_color: '#ffffff',
-        theme_color: '#2E8B57',
+        theme_color: '#1f8bd3ff',
         icons: [
           {
             src: 'android-launchericon-192-192.png',

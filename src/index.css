@@ -176,6 +176,7 @@
 }
 
 .travel-card {
+  max-height: 400px;
   max-width: 900px;
   margin: 0 auto 2rem;
   border-radius: 12px;
@@ -238,6 +239,51 @@
   padding: 0.5rem 1rem;
   border-radius: 8px;
 }
+
+.action-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.menu-options {
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.menu-options button {
+  background: transparent;
+  border: none;
+  color: #2563eb;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.menu-options button:hover {
+  color: #1e40af;
+}
+
 
 /* TAPPE */
 
@@ -340,6 +386,90 @@
   background-color: #2563eb;
 }
 
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  /* Logo */
+  .logo-img {
+    height: 150px;
+  }
+
+  .logo-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  /* Titoli e testi */
+  .filters-title,
+  .travel-card-title,
+  .travel-title {
+    font-size: 1.2rem;
+  }
+
+  .travel-description,
+  .travel-details {
+    font-size: 0.9rem;
+  }
+
+  /* Card */
+  .travel-card {
+    margin: 1rem;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+  }
+
+  .travel-card-body {
+    padding: 1rem;
+  }
+
+  .travel-card-image {
+    height: 150px;
+  }
+
+  
+
+  /* Cover immagine */
+  .travel-cover {
+    height: 200px;
+  }
+
+  /* Pulsante back */
+  .go-back-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  .go-back-icon {
+    font-size: 1rem;
+  }
+
+  /* Filtri */
+  .filter-input,
+  .filter-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .bg-section {
+    padding: 1rem;
+  }
+
+  /* Media viewer */
+  .media-item {
+    max-height: 200px;
+  }
+
+  .media-controls button {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Rating cerchi */
+  .circle {
+    width: 10px;
+    height: 10px;
+  }
+}
 
 
 

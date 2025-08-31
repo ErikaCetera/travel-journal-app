@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const TravelCard = ({ travel }) => {
   return (
     <Link to={`/travel/${travel.id}`} className="travel-card-link">
-      <div className="travel-card">
+      <div className="travel-card ">
         <div
           className="travel-card-image"
           style={{ backgroundImage: `url(${travel.cover})` }}

@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { supabase } from "../supebaseClient";
 import TravelPostCard from "../components/TravelPostCard";
 import GoBackButton from "../components/GoBackButton";
+import { FiMoreVertical } from "react-icons/fi";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const TravelDetails = () => {
   const { id } = useParams();
@@ -12,6 +15,8 @@ const TravelDetails = () => {
   const [media, setMedia] = useState([]);
   const [openPostId, setOpenPostId] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   // Filtri
   const [text, setText] = useState("");
@@ -53,6 +58,15 @@ const TravelDetails = () => {
     fetchData();
   }, [id]);
 
+  const handleDelete = async () => {
+    const confirmed = window.confirm("Vuoi davvero eliminare questo viaggio?");
+    if (!confirmed) return;
+
+    // Elimina il viaggio
+    const { error } = await supabase.from("travel").delete().eq("id", id);
+    if (!error) navigate("/");
+  };
+
   const fetchPostsByTag = async (tagId) => {
     const { data: tagLinks } = await supabase
       .from("travel_post_tag")
@@ -92,15 +106,33 @@ const TravelDetails = () => {
   return (
     <div className="container mt-4">
 
-      <GoBackButton/>
+      <GoBackButton />
 
       {/* Copertina */}
       {travel && (
-        <div className="travel-header mb-4">
+        <div className="travel-header mb-4 position-relative">
           <img src={travel.cover} alt="Copertina viaggio" className="travel-cover" />
           <h1 className="travel-title">{travel.title}</h1>
+
+          {/* Menu azioni */}
+          <div className="action-menu">
+            <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+              <FiMoreVertical />
+            </button>
+            {menuOpen && (
+              <div className="menu-options">
+                <button onClick={() => navigate(`/edit/${travel.id}`)}>
+                  <FaEdit className="me-2" /> Modifica
+                </button>
+                <button onClick={handleDelete}>
+                  <FaTrash className="me-2" /> Elimina
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       )}
+
 
       {/* Filtri */}
       <div className="bg-section my-5">

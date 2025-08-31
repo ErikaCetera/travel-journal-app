@@ -1,31 +1,33 @@
 {
   "name": "BearTrip",
   "short_name": "BTrip",
-  "description": " Diario di viaggio pesonale",
-  "start_url": ".",
+  "description": "Diario di viaggio personale",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "android-launchericon-192-192.png",
+      "src": "/icons/android-launchericon-192-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "android-launchericon-512-512.png",
+      "src": "/icons/android-launchericon-512-512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "LargeTile.scale-150.png",
+      "src": "/icons/LargeTile.scale-150.png",
       "sizes": "150x150",
       "type": "image/png"
     },
     {
-      "src": "Square44x44Logo.altform-lightunplated_targetsize-256.png",
+      "src": "/icons/Square44x44Logo.altform-lightunplated_targetsize-256.png",
       "sizes": "256x256",
       "type": "image/png"
     }
   ]
 }
+
