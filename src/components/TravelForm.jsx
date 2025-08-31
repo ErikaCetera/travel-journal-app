@@ -9,7 +9,8 @@ function TravelForm({
     handleRemoveStop,
     handleSubmit,
     availableTags,
-    handleAddTag
+    handleAddTag,
+    errors
 }) {
     return (
         <div>
@@ -34,6 +35,7 @@ function TravelForm({
                                             onChange={handleTravelChange}
                                             placeholder="Es. Viaggio in Giappone"
                                         />
+                                        {errors.title && <div className="red mt-1">{errors.title}</div>}
                                     </div>
 
                                     <div className="form-group mb-4">
@@ -43,17 +45,15 @@ function TravelForm({
                                             className="form-control"
                                             id="cover"
                                             name="cover"
-                                            value={travelData.cover}
                                             onChange={handleTravelChange}
-
                                         />
+                                        {errors.cover && <div className="red mt-1">{errors.cover}</div>}
                                     </div>
                                 </div>
                             </div>
 
-
                             <div className="row mb-3">
-                                <div className="col-md-6 ">
+                                <div className="col-md-6">
                                     <label htmlFor="start">Data inizio <span className="red">*</span></label>
                                     <input
                                         type="date"
@@ -76,7 +76,10 @@ function TravelForm({
                                         onChange={handleTravelChange}
                                     />
                                 </div>
+
+                                {errors.dates && <div className="red mt-2 ms-2">{errors.dates}</div>}
                             </div>
+
                         </div>
 
 
@@ -116,6 +119,8 @@ function TravelForm({
                                         onChange={(e) => handleStopChange(index, e)}
                                         placeholder="Es. Kyoto"
                                     />
+                                    {errors[`stop_${index}_place`] && (
+                                        <div className="red mt-1">{errors[`stop_${index}_place`]}</div>)}
                                 </div>
 
                                 <div className="form-group mb-3">
@@ -128,6 +133,8 @@ function TravelForm({
                                         onChange={(e) => handleStopChange(index, e)}
                                         placeholder="Descrivi la tappa"
                                     />
+                                    {errors[`stop_${index}_description`] && (
+                                        <div className="red mt-1">{errors[`stop_${index}_description`]}</div>)}
                                 </div>
 
                                 {/* Mood & Tag */}
@@ -142,6 +149,8 @@ function TravelForm({
                                             value={stop.mood}
                                             onChange={(e) => handleStopChange(index, e)}
                                         />
+                                        {errors[`stop_${index}_mood`] && (
+                                            <div className="red mt-1">{errors[`stop_${index}_mood`]}</div>)}
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label className="form-label">Tag</label>
@@ -171,7 +180,7 @@ function TravelForm({
                                                     });
                                                 }}
                                             >
-                                                ➕
+                                                +
                                             </button>
                                         </div>
 
@@ -241,8 +250,10 @@ function TravelForm({
                                             value={stop.physical_effort}
                                             onChange={(e) => handleStopChange(index, e)}
                                             min="0"
-                                            max="5"
                                         />
+                                        {errors[`stop_${index}_physical_effort`] && (
+                                            <div className="red mt-1">{errors[`stop_${index}_physical_effort`]}</div>
+                                        )}
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor={`economic_effort-${index}`}>Sforzo economico (0–5)</label>
@@ -254,8 +265,10 @@ function TravelForm({
                                             value={stop.economic_effort}
                                             onChange={(e) => handleStopChange(index, e)}
                                             min="0"
-                                            max="5"
                                         />
+                                        {errors[`stop_${index}_economic_effort`] && (
+                                            <div className="red mt-1">{errors[`stop_${index}_economic_effort`]}</div>
+                                        )}
                                     </div>
                                 </div>
 
@@ -285,6 +298,9 @@ function TravelForm({
                                         accept="image/*,video/*"
                                         onChange={(e) => handleStopChange(index, e)}
                                     />
+                                    {errors[`stop_${index}_media`] && (
+                                        <div className="red mt-1">{errors[`stop_${index}_media`]}</div>
+                                    )}
                                 </div>
                             </div>
                         ))}
