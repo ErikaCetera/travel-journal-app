@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { FaMapMarkedAlt, FaPlusCircle, FaUser, FaHome } from 'react-icons/fa';
 
 const Navbar = () => {
+
+  const closeMobileMenu = () => {
+    const navbar = document.getElementById("navbarNav");
+    if (navbar && navbar.classList.contains("show")) {
+      navbar.classList.remove("show");
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
       <div className="container-fluid">
@@ -24,19 +32,19 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item ">
-              <Link to="/" className="nav-link d-flex align-items-center">
+              <Link to="/" className="nav-link d-flex align-items-center" onClick={closeMobileMenu}>
                 <FaHome className="me-2" />
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/create" className="nav-link d-flex align-items-center">
+              <Link to="/" className="nav-link d-flex align-items-center" onClick={closeMobileMenu}>
                 <FaMapMarkedAlt className="me-2" />
                 Esplora i viaggi
               </Link>
             </li>
             <li className="nav-item ">
-              <Link to="/create" className="nav-link d-flex align-items-center">
+              <Link to="/create" className="nav-link d-flex align-items-center" onClick={closeMobileMenu}>
                 <FaPlusCircle className="me-2" />
                 Aggiungi una nuova meta
               </Link>

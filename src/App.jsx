@@ -3,8 +3,10 @@ import Layout from './layout/Layout'
 import TravelList from './pages/TravelList'
 import TravelDetail from './pages/TravelDetail'
 import CreateTravel from './pages/CreateTravel'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
+   <ScrollToTop />
   return (
     <Router>
       <Routes>
