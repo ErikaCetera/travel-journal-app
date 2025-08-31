@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../supebaseClient";
 import TravelPostCard from "../components/TravelPostCard";
+import GoBackButton from "../components/GoBackButton";
 
 const TravelDetails = () => {
   const { id } = useParams();
@@ -90,6 +91,9 @@ const TravelDetails = () => {
 
   return (
     <div className="container mt-4">
+
+      <GoBackButton/>
+
       {/* Copertina */}
       {travel && (
         <div className="travel-header mb-4">

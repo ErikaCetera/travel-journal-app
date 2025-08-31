@@ -3,7 +3,6 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showDetails, setShowDetails] = useState(false);
   const currentMedia = media[currentIndex];
 
   const handlePrev = () => {
@@ -27,7 +26,7 @@ const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
 
       <div className="travel-post-header d-flex align-items-center mb-3">
           <FaMapMarkerAlt className="text-primary me-2" />
-          <h3 className="travel-post-title">{post.place}</h3>
+          <h3 className="travel-post-title text-white">{post.place}</h3>
         </div>
         <hr  className="text-white"/>
 
@@ -62,15 +61,9 @@ const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
         )}
 
         <p className="travel-description mt-1">{post.description}</p>
+        <hr className="text-white"/>
 
-        <button
-          className="btn btn-sm btn-outline-primary mt-3"
-          onClick={() => setShowDetails(!showDetails)}
-        >
-          {showDetails ? "Nascondi dettagli" : "Mostra dettagli"}
-        </button>
-
-        {showDetails && (
+       
           <ul className="list-unstyled travel-details mt-3">
             <li><strong>Mood:</strong> {post.mood}</li>
             <li><strong>Note positive:</strong> {post.positive_note}</li>
@@ -79,7 +72,6 @@ const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
             <li><strong>Effert economico:</strong> <CirclesDisplay voto={post.economic_effort} /></li>
             <li><strong>Costo reale:</strong> €{post.actual_cost}</li>
           </ul>
-        )}
       </div>
     </div>
 
