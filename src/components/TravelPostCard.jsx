@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
+const TravelPostCard = ({ post, media, tags = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentMedia = media[currentIndex];
 
@@ -25,10 +25,10 @@ const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
     <div className="mb-5 row bg-section mx-1">
 
       <div className="travel-post-header d-flex align-items-center mb-3">
-          <FaMapMarkerAlt className="text-primary me-2" />
-          <h3 className="travel-post-title text-white">{post.place}</h3>
-        </div>
-        <hr  className="text-white"/>
+        <FaMapMarkerAlt className="text-primary me-2" />
+        <h3 className="travel-post-title text-white">{post.place}</h3>
+      </div>
+      <hr className="text-white" />
 
       {/* galleria media */}
       <div className="col-md-5">
@@ -61,17 +61,17 @@ const TravelPostCard = ({ post, media, open, toggle, tags = [] }) => {
         )}
 
         <p className="travel-description mt-1">{post.description}</p>
-        <hr className="text-white"/>
+        <hr className="text-white" />
 
-       
-          <ul className="list-unstyled travel-details mt-3">
-            <li><strong>Mood:</strong> {post.mood}</li>
-            <li><strong>Note positive:</strong> {post.positive_note}</li>
-            <li><strong>Note negative:</strong> {post.negative_note}</li>
-            <li><strong>Sforzo fisico:</strong> <CirclesDisplay voto={post.physical_effort} /></li>
-            <li><strong>Effert economico:</strong> <CirclesDisplay voto={post.economic_effort} /></li>
-            <li><strong>Costo reale:</strong> €{post.actual_cost}</li>
-          </ul>
+
+        <ul className="list-unstyled travel-details mt-3">
+          <li><strong>Mood:</strong> {post.mood}</li>
+          <li><strong>Note positive:</strong> {post.positive_note}</li>
+          <li><strong>Note negative:</strong> {post.negative_note}</li>
+          <li><strong>Sforzo fisico:</strong> <CirclesDisplay voto={post.physical_effort} /></li>
+          <li><strong>Effert economico:</strong> <CirclesDisplay voto={post.economic_effort} /></li>
+          <li><strong>Costo reale:</strong> €{post.actual_cost}</li>
+        </ul>
       </div>
     </div>
 
